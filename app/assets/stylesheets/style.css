@@ -66,14 +66,14 @@ body {
 }
 
 #umi {
-  background: orange;
+  background: aquamarine;
   position: fixed;
   top: 0;
   bottom: 0;
   right: 0;
   left: 0;
   z-index: 1;
-  opacity: 0.7;
+  opacity: 0.5;
   transition: 15.0s;
 }
 
@@ -91,5 +91,5 @@ body {
 
 
 #umi.hidden {
-  transform: translate(0, 900px);
+  transform: translate(0, 830px);
 }
