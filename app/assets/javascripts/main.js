@@ -50,7 +50,6 @@ window.onload = function(){
       //モードルを出す処理
       modal.classList.remove('hidden');
       mask.classList.remove('hidden');
-
       target.textContent = ''
       document.getElementById("target").style.color = "";
       timerLabel.textContent = '0.00'
@@ -146,5 +145,6 @@ window.onload = function(){
       missLabel.textContent = miss;
     }
   });
-}
+  
+};
 
