@@ -19,12 +19,14 @@ window.onload = function(){
   const timerLabel = document.getElementById('timer');
   const modal = document.getElementById('modal');
   const mask = document.getElementById('mask');
+  const umi = document.getElementById('umi');
   const result = document.getElementById('result');
 
   // モーダルを消す処理
   mask.addEventListener('click', function () {
     modal.classList.add('hidden');
     mask.classList.add('hidden');
+    umi.classList.add('hidden');
   });
   
 
@@ -37,7 +39,6 @@ window.onload = function(){
     target.textContent = placeholder + word.substring(loc);
   }
 
-  //時間設定
   function updateTimer() {
     const timeLeft = startTime + timeLimit - Date.now();
     timerLabel.textContent = (timeLeft / 1000).toFixed(2);
@@ -64,11 +65,13 @@ window.onload = function(){
   //正答率の計算    
   function showResult() {
     const accuracy = score + miss === 0 ? 0 :score / (score + miss) * 100;
+    console.log(score);   //クッキーをうちこめ
     result.textContent = accuracy.toFixed(2)
   };
 
 //クリックでrubyゲームスタート
   ruby.addEventListener('click', () =>{
+    umi.classList.remove('hidden');
     ruby.textContent = ''
     start.textContent = ''
     words.length = 0;
@@ -96,6 +99,7 @@ window.onload = function(){
 
 //クリックでjsゲームスタート
   start.addEventListener('click', () =>{
+    umi.classList.remove('hidden');
     ruby.textContent = ''
     start.textContent = ''
     words.length = 0;
@@ -125,6 +129,7 @@ window.onload = function(){
     if (isPlaying !== true) {
       return;
     }
+
 
     if (e.key === word[loc]) {
       loc++;

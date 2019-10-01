@@ -47,7 +47,7 @@ body {
   height: 200px;
   width: 500px;
   background-color: #ccc;
-  z-index: 2;
+  z-index: 3;
   position: relative;
   top: 100px;
   left: 400px;
@@ -62,7 +62,19 @@ body {
   bottom: 0;
   right: 0;
   left: 0;
+  z-index: 2;
+}
+
+#umi {
+  background: orange;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
   z-index: 1;
+  opacity: 0.7;
+  transition: 15.0s;
 }
 
 #mask.hidden {
@@ -77,3 +89,7 @@ body {
   font-size: 25px;
 }
 
+
+#umi.hidden {
+  transform: translate(0, 900px);
+}
