@@ -1,0 +1,79 @@
+body {
+  /* padding-top: 40px; */
+  font-family: 'Courier New', monospace; 
+  text-align: center;
+  padding: 40px;
+}
+
+
+
+.content {
+  position: relative;
+  bottom: 130px;
+}
+
+#target {
+  font-size: 50px;
+  letter-spacing: 3px;
+  position: relative;
+  bottom:80px;
+}
+
+#start {
+  background-color: yellow;
+  margin-top: 0px;
+}
+
+#ruby {
+  background-color: red;
+}
+
+.prblem {
+  font-size: 50px;
+  letter-spacing: 3px;
+  width: 70%;
+  display: inline-block;
+  margin-bottom: 0px;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+.prblem:hover {
+  opacity: 0.5;
+}
+
+
+#modal {
+  height: 200px;
+  width: 500px;
+  background-color: #ccc;
+  z-index: 2;
+  position: relative;
+  top: 100px;
+  left: 400px;
+  transition: 0.4s;
+  border-radius: 15px;
+}
+
+#mask {
+  background: rgba(0, 0, 0, 0.4);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 1;
+}
+
+#mask.hidden {
+  display: none;
+}
+
+#modal.hidden {
+  transform: translate(0, -600px);
+}
+
+.info {
+  font-size: 25px;
+}
+
