@@ -38,46 +38,48 @@ window.onload = function(){
 //クリックでrubyゲームスタート
   ruby.addEventListener('click', () =>{
     mask_white.classList.remove('hidden');
+    umi.classList.remove('hidden2');
     ruby.textContent = ''
     start.textContent = ''
     words.length = 0;
     words = [
-      'ruby','puts','length',
-      'gets','hash','if','else','each',
-      'while','elseif','true','false','return',
-      'class','new','with','index','round'
+      'ruby','puts','length','rpartition','include','rindex',
+      'gets','hash','if','else','each','reverse','capitalaize',
+      'while','elseif','true','false','return','swapcase','replace','clear',
+      'class','new','with','index','round','split','partition'
     ];
     if (isPlaying === true) {
-      return};
+      return}
     isPlaying = true;  
+
     loc = 0;
     score = 0;
     miss = 0;
+    totalLabel.textContent = total;
     scoreLabel.textContent = score;
     missLabel.textContent = miss;
     word = words[Math.floor(Math.random() * words.length)];
-    totalLabel.textContent = total;
     target.textContent = word;
-    startTime = Date.now();     //現在時刻を取得
+    startTime = Date.now();
     updateTimer();
   })
 
 //クリックでjsゲームスタート
   start.addEventListener('click', () =>{
     mask_white.classList.remove('hidden');
+    umi.classList.remove('hidden2');
     ruby.textContent = ''
     start.textContent = ''
     words.length = 0;
     words = [
-      'function','target','document',
-      'var','let','const','false','console',
-      'ajax','click','empty','remove','add',
+      'function','target','document','settimeout','this','call',
+      'var','let','const','false','console','random','addeventListener','isplaying',
+      'ajax','click','empty','remove','add','getelementbyid',
       'text','attr','show','val','sumit'
     ];
     if (isPlaying === true) {
       return}
     isPlaying = true;  
-
     loc = 0;
     score = 0;
     miss = 0;
@@ -140,7 +142,6 @@ window.onload = function(){
     if (timeRight < 0) {
       mask_white.classList.add('hidden');
       umi.classList.remove('hidden');
-      
     }
     if (timeLeft < 0) {
       isPlaying = false;
@@ -149,6 +150,7 @@ window.onload = function(){
       modal.classList.remove('hidden');
       mask.classList.remove('hidden');
       umi.classList.add('hidden');
+      umi.classList.add('hidden2');
       target.textContent = '';
       document.getElementById("target").style.color = "";
       timerLabel.textContent = '0.00'
