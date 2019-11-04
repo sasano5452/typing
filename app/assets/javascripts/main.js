@@ -9,12 +9,15 @@ window.onload = function(){
   let loc;     // 文字が何番目かを管理したい 重要
   let score;
   let miss;
-  const timeLimit = 15 * 1000;  //タイムリミット
+  const countLimit = 3 * 1000;  //カウントリミット
+  const timeLimit = 15 * 1000 + countLimit;  //タイムリミット
   let startTime;
   let isPlaying = false;
-  
+  let total = 0;
+
 //id要素の取得
   const target = document.getElementById('target');
+  const totalLabel = document.getElementById('total');
   const scoreLabel = document.getElementById('score');
   const missLabel = document.getElementById('miss');
   const timerLabel = document.getElementById('timer');
@@ -22,6 +25,9 @@ window.onload = function(){
   const mask = document.getElementById('mask');
   const umi = document.getElementById('umi');
   const result = document.getElementById('result');
+  const mask_white = document.getElementById('mask_white');
+  const mask_box_count = document.getElementById('mask_box_count');
+
 
 // モーダルを消す処理
   mask.addEventListener('click', function () {
@@ -31,7 +37,7 @@ window.onload = function(){
   
 //クリックでrubyゲームスタート
   ruby.addEventListener('click', () =>{
-    umi.classList.remove('hidden');
+    mask_white.classList.remove('hidden');
     ruby.textContent = ''
     start.textContent = ''
     words.length = 0;
@@ -50,7 +56,7 @@ window.onload = function(){
     scoreLabel.textContent = score;
     missLabel.textContent = miss;
     word = words[Math.floor(Math.random() * words.length)];
-
+    totalLabel.textContent = total;
     target.textContent = word;
     startTime = Date.now();     //現在時刻を取得
     updateTimer();
@@ -58,7 +64,7 @@ window.onload = function(){
 
 //クリックでjsゲームスタート
   start.addEventListener('click', () =>{
-    umi.classList.remove('hidden');
+    mask_white.classList.remove('hidden');
     ruby.textContent = ''
     start.textContent = ''
     words.length = 0;
@@ -75,6 +81,7 @@ window.onload = function(){
     loc = 0;
     score = 0;
     miss = 0;
+    totalLabel.textContent = total;
     scoreLabel.textContent = score;
     missLabel.textContent = miss;
     word = words[Math.floor(Math.random() * words.length)];
@@ -95,6 +102,9 @@ window.onload = function(){
       if (loc === word.length) {
         word = words[Math.floor(Math.random() * words.length)];  // ランダムに単語をだす
         loc = 0;
+        document.getElementById('sound').play(); //音がなります
+        total++;
+        totalLabel.textContent = total;
       }
       updataTarget();
       score++;
@@ -115,14 +125,23 @@ window.onload = function(){
     }
     target.textContent = placeholder + word.substring(loc);
   }
+
  //時間制限
   function updateTimer() {
     const timeLeft = startTime + timeLimit - Date.now();
+    const timeRight = startTime + countLimit - Date.now();
     timerLabel.textContent = (timeLeft / 1000).toFixed(2);
+    mask_box_count.textContent = (timeRight / 1000).toFixed(0);
    //時間を動かす 
     const timeoutId = setTimeout(() => {
       updateTimer();
         }, 10);
+   // カウントが終わるとtypingスタート    
+    if (timeRight < 0) {
+      mask_white.classList.add('hidden');
+      umi.classList.remove('hidden');
+      
+    }
     if (timeLeft < 0) {
       isPlaying = false;
       clearTimeout(timeoutId);
@@ -130,7 +149,7 @@ window.onload = function(){
       modal.classList.remove('hidden');
       mask.classList.remove('hidden');
       umi.classList.add('hidden');
-      target.textContent = ''
+      target.textContent = '';
       document.getElementById("target").style.color = "";
       timerLabel.textContent = '0.00'
       setTimeout(() => {
@@ -141,10 +160,11 @@ window.onload = function(){
     };
   };
 
+
   //正答率の計算    
   function showResult() {
     const accuracy = score + miss === 0 ? 0 :score / (score + miss) * 100;
-    console.log(score);   //クッキーをうちこめ
+    // console.log(score);  クッキーをうちこめ
     result.textContent = accuracy.toFixed(2)
   };
 };
