@@ -1,9 +1,15 @@
+html {
+  background-color: azure;
+}
 body {
   font-family: 'Courier New', monospace; 
   text-align: center;
   position: relative;
   padding: 40px;
   height:100%;
+  background-color: white;
+  width: 1020px;
+  margin: 0 auto;
 }
 
 .content {
@@ -48,7 +54,7 @@ body {
   background-color: #ccc;
   z-index: 4;
   position: relative;
-  left: 400px;
+  left: 25%;
   transition: 0.4s;
   border-radius: 15px;
 }
@@ -89,15 +95,14 @@ body {
 }
 
 #umi {
-  background: aquamarine;
+  background: rgb(250, 144, 57);
   position: fixed;
   top: 0;
   bottom: 0;
   right: 0;
   left: 0;
   z-index: -1;
-  opacity: 0.5;
-  transition: 18.0s;
+  transition: 33.0s;
 }
 
 #mask.hidden {

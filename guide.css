@@ -1,0 +1,71 @@
+html {
+  font-family: 'Courier New', monospace; 
+  background-color: azure;
+}
+
+/* ヘッダー */
+header h1 {
+  text-align: center;
+  margin-bottom: 70px;
+}
+
+#guide__content {
+  background-color: white;
+  width: 700px;
+  margin: 0 auto;
+  border-radius: 10px;
+}
+
+#guide__content__1 {
+  width: 80%;
+  margin: 0 auto;
+}
+
+#guide__content__2 {
+  width: 80%;
+  margin: 0 auto;
+}
+
+#guide__content__1.hidden {
+  display: none;
+}
+
+#guide__content__2.hidden {
+  display: none;
+}
+
+.btn {
+  display: inline-block;
+  padding: 5px 10px;
+  width: 50px;
+  line-height: 30px;
+  text-align: center;
+  margin-left: 450px;
+  background-color: rgb(144, 142, 142);
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  opacity: 0.5;
+}
+
+.image1 {
+  height: 300px;
+  width: 100%;
+  background-image: url("http://ss320.sakura.ne.jp/typing3/inage1.png");
+  background-size:cover;
+  border: solid black;
+}
+
+.image2 {
+  height: 300px;
+  width: 100%;
+  background-image: url("http://ss320.sakura.ne.jp/typing3/image2.png");
+  background-size:cover;
+  border: solid black;
+}
+
+a {
+  color: black;
+}

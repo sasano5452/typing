@@ -10,7 +10,7 @@ window.onload = function(){
   let score;
   let miss;
   const countLimit = 3 * 1000;  //カウントリミット
-  const timeLimit = 15 * 1000 + countLimit;  //タイムリミット
+  const timeLimit = 30 * 1000 + countLimit;  //タイムリミット
   let startTime;
   let isPlaying = false;
   let total = 0;
@@ -74,7 +74,7 @@ window.onload = function(){
     words.length = 0;
     words = [
       'function','target','document','settimeout','this','call',
-      'var','let','const','false','console','random','addeventListener','isplaying',
+      'var','let','const','false','console','random','addeventlistener','isplaying',
       'ajax','click','empty','remove','add','getelementbyid',
       'text','attr','show','val','sumit'
     ];
