@@ -23,6 +23,7 @@ window.onload = function(){
   const timerLabel = document.getElementById('timer');
   const modal = document.getElementById('modal');
   const mask = document.getElementById('mask');
+  const close = document.getElementById('close')
   const umi = document.getElementById('umi');
   const result = document.getElementById('result');
   const mask_white = document.getElementById('mask_white');
@@ -30,7 +31,7 @@ window.onload = function(){
 
 
 // モーダルを消す処理
-  mask.addEventListener('click', function () {
+  close.addEventListener('click', function () {
     modal.classList.add('hidden');
     mask.classList.add('hidden');
   });
@@ -104,7 +105,7 @@ window.onload = function(){
       if (loc === word.length) {
         word = words[Math.floor(Math.random() * words.length)];  // ランダムに単語をだす
         loc = 0;
-        document.getElementById('sound').play(); //音がなります
+        document.getElementById('sound').play(''); //音がなります
         total++;
         totalLabel.textContent = total;
       }
@@ -113,6 +114,7 @@ window.onload = function(){
       scoreLabel.textContent = score;
 
     } else {
+      document.getElementById('mistake').play();
       document.getElementById("target").style.color = "red";
       miss++;
       missLabel.textContent = miss;
@@ -142,7 +144,8 @@ window.onload = function(){
     if (timeRight < 0) {
       mask_white.classList.add('hidden');
       umi.classList.remove('hidden');
-    }
+    };
+  
     if (timeLeft < 0) {
       isPlaying = false;
       clearTimeout(timeoutId);
@@ -161,6 +164,7 @@ window.onload = function(){
       start.textContent = "javascript play"
     };
   };
+
 
 
   //正答率の計算    

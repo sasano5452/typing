@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <title>typing</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <header>
   <h1 class="title">Let's typing!!</h1>
@@ -20,6 +21,7 @@
     <p class="result_menu">letter count: <span id="score">0</span></p>
     <p class="result_menu">miss count: <span id="miss">0</span></p>
     <p class="result_menu">accuracy!: <span id="result">0</span>%</p>
+    <div id="close" class="cbtn">CLOSE</div>
   </div>
   <!-- トップページ部分 -->
   <div class='content'>
@@ -31,7 +33,11 @@
     </p>
   </div>
   <audio id="sound" preload="auto">
-    <source src='https://soundeffect-lab.info/sound/button/mp3/decision23.mp3' type="audio/mp3">
+    <source id="true" src='https://soundeffect-lab.info/sound/button/mp3/decision23.mp3' type="audio/mp3">
   </audio>
+  <audio id="mistake" preload="auto">
+    <source src='https://soundeffect-lab.info/sound/anime/mp3/incorrect2.mp3' type="audio/mp3"> 
+  </audio>
+  <script src="main.js"></script>
 </body>  
 </html>
