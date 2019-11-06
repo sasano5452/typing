@@ -69,3 +69,7 @@ header h1 {
 a {
   color: black;
 }
+
+.link:hover{
+  color: red;
+} 
